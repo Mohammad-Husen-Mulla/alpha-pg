@@ -1,5 +1,6 @@
 package com.alphapg.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,9 +20,17 @@ public class AppUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
+	
+	@Column(nullable = false)
 	private String name;
+	
+	@Column(unique = true, nullable = false)
 	private String email;
+	
+	@Column(unique = true, nullable = false)
 	private String phone;
+
+	@Column(nullable = false)
 	private String password;
 	private Boolean isAccountEnabled;
 	
